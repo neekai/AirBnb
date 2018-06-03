@@ -4,6 +4,7 @@ import Title from './Title.jsx';
 import Stats from './Stats.jsx';
 import Highlights from './Highlights.jsx';
 import Description from './Description.jsx';
+import Amenity from './Amenity.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -65,6 +66,7 @@ class App extends React.Component {
                 <Stats statsInfo={this.state.statsInfo}/>
                 <Highlights/>
                 <Description listingInfo={this.state.listingInfo}/>
+                <Amenity/>
             </div>
         )
     }

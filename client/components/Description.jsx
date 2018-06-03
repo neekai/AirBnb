@@ -12,7 +12,11 @@ const ReadMoreAndHide = styled.a`
 font-size: 16px;
 font-family: 'Source Sans Pro', sans-serif;
 font-weight: 600;
-color: #008489
+cursor: pointer;
+color: #008489;
+&:hover{
+  text-decoration: underline;
+}
 `;
 
 class Description extends React.Component {
