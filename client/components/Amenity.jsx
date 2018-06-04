@@ -7,7 +7,7 @@ const ExitPopUpButton = styled.span`
 
 const ShowAllAmenities = styled.a`
   cursor: pointer;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
   color: #008489;
@@ -28,7 +28,7 @@ const AmenityDiv = styled.div`
   margin-bottom: 10%
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 17px;
 `; 
 
 const AmenitySpan = styled.span`

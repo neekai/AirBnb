@@ -3,14 +3,14 @@ import styled from 'styled-components';
 // import ListingDescription from './Style.jsx';
 
 const ListingDescription = styled.div`
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   margin-bottom: 2.5%;
 `;
 
 const ReadMoreAndHide = styled.a`
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
   cursor: pointer;
