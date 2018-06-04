@@ -9,14 +9,15 @@ import Amenity from './Amenity.jsx';
 import Arrangements from './Arrangements.jsx';
 import Rules from './Rules.jsx';
 import Cancellations from './Cancellations.jsx';
-// import Calendar from 'react-calendar';
+import Calendar from 'react-calendar';
 
 const TopAndBottomBorder = styled.div`
   border-top: 1px solid #DBDBDB;
   border-bottom: 1px solid #DBDBDB;
   width: 32%;
-  padding: 2.5% 0;
+  padding-top: 2.5%;
   margin-left: 17%;
+  padding-bottom: 2.5%;
 `;
 
 const HouseRulesDiv = styled.p`
@@ -135,9 +136,9 @@ class App extends React.Component {
                   {this.state.rulesInfo.map((ruleInfo, index) => <Rules ruleInfo={ruleInfo} key={index}/>)}
                 </TopAndBottomBorder>
                 <Cancellations/>
-                
-                  {/* <Calendar onChange={this.OnChangeForDate} value={this.state.date}/> */}
-                
+                <TopAndBottomBorder>
+                  <Calendar onChange={(date) => this.OnChangeForDate()} value={this.state.date}/>
+                </TopAndBottomBorder>
                 
             </div>
         )
