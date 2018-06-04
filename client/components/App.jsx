@@ -13,13 +13,15 @@ class App extends React.Component {
         this.state = {
             listing_id: 0,
             listingInfo: {},
-            statsInfo: {}
+            statsInfo: {},
+            amenitiesInfo: {}
         };
     }
 
     componentDidMount() {
         this.fetchListingTitleAndLocationFromDB();
         this.fetchListingStatsFromDB();
+        this.fetchListingAmenitiesFromDB();
     }
 
     fetchListingTitleAndLocationFromDB() {
@@ -53,6 +55,21 @@ class App extends React.Component {
             .catch(err => console.log("There was an err fetching stats from controller..", err));
     }
 
+    fetchListingAmenitiesFromDB() {
+      const id = this.state.listing_id;
+      axios.get('/api/amenities', {
+        params: {
+          listing_id: id
+        }
+      })
+            .then(res => {
+              console.log("This is amenities data..", res.data);
+              this.setState({
+                amenitiesInfo: res.data[id]
+              })  
+           })
+           .catch(err => console.log("There was an err fetching amenities from controller..", err)); 
+    }       
 
 
 
@@ -66,7 +83,7 @@ class App extends React.Component {
                 <Stats statsInfo={this.state.statsInfo}/>
                 <Highlights/>
                 <Description listingInfo={this.state.listingInfo}/>
-                <Amenity/>
+                <Amenity amenitiesInfo={this.state.amenitiesInfo}/>
             </div>
         )
     }
