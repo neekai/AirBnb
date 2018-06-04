@@ -28,6 +28,12 @@ const HouseRulesDiv = styled.p`
   font-weight: 600;
 `;
 
+const HostPicture = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 10px;
+`;
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -38,6 +44,7 @@ class App extends React.Component {
             statsInfo: {},
             amenitiesInfo: {},
             rulesInfo: [],
+            hostInfo: {},
             date: new Date()
         };
     }
@@ -47,6 +54,7 @@ class App extends React.Component {
         this.fetchListingStatsFromDB();
         this.fetchListingAmenitiesFromDB();
         this.fetchRulesFromDB();
+        this.fetchHostInfo();
     }
 
     fetchListingTitleAndLocationFromDB() {
@@ -55,13 +63,11 @@ class App extends React.Component {
           params: {
               listing_id: id
           }
-      })
-           .then(res => {
+      }).then(res => {
                this.setState({
                    listingInfo: res.data[id]
                });
-           })
-           .catch(err => {console.log("There was an err retrieving listing info..", err)});
+           }).catch(err => {console.log("There was an err retrieving listing info..", err)});
     }
 
     fetchListingStatsFromDB() {
@@ -70,14 +76,12 @@ class App extends React.Component {
           params: {
               listing_id: id
           }
-      })
-            .then(res => {
+      }).then(res => {
                 // console.log("This is stats data..", res.data);
                 this.setState({
                     statsInfo: res.data[id]
                 })
-            })
-            .catch(err => console.log("There was an err fetching stats from controller..", err));
+            }).catch(err => console.log("There was an err fetching stats from controller..", err));
     }
 
     fetchListingAmenitiesFromDB() {
@@ -86,14 +90,12 @@ class App extends React.Component {
         params: {
           listing_id: id
         }
-      })
-            .then(res => {
+      }).then(res => {
             //   console.log("This is amenities data..", res.data);
               this.setState({
                 amenitiesInfo: res.data[id]
               })  
-           })
-           .catch(err => console.log("There was an err fetching amenities from controller..", err)); 
+           }).catch(err => console.log("There was an err fetching amenities from controller..", err)); 
     }
     
     fetchRulesFromDB() {
@@ -101,19 +103,29 @@ class App extends React.Component {
         params: {
           listing_id: 0
         }
-      })
-           .then(res => {
+      }).then(res => {
               this.setState({
                 rulesInfo: [...res.data[0].rules]
              })
-           })
-           .catch(err => console.log("There was an err fetching rules from controller..", err));
+           }).catch(err => console.log("There was an err fetching rules from controller..", err));
+    }
+
+    fetchHostInfo() {
+      const id = this.state.listing_id;
+      axios.get('/api/hosts', {
+        params: {
+          listing_id: id
+        }
+      }).then(res => this.setState({
+          hostInfo: res.data[id]
+      }))
+        .catch(err => console.log("There was an err fetching host from controller..", err))
     }
     
     OnChangeForDate(date) {
       this.setState({
         date: date
-      })
+      });
     }
 
 
@@ -123,7 +135,10 @@ class App extends React.Component {
     render() {
         return(
             <div>
-                <Title listingInfo={ this.state.listingInfo } />
+                <Title hostInfo={ this.state.hostInfo } listingInfo={ this.state.listingInfo } />
+                {/* <HostPicture>
+                <img src="" alt="Avatar" id="image"/>
+                </HostPicture> */}
                 <Stats statsInfo={ this.state.statsInfo }/>
                 <Highlights/>
                 <Description listingInfo={ this.state.listingInfo }/>
@@ -133,11 +148,11 @@ class App extends React.Component {
                   <HouseRulesDiv>
                     House Rules
                   </HouseRulesDiv>
-                  {this.state.rulesInfo.map((ruleInfo, index) => <Rules ruleInfo={ruleInfo} key={index}/>)}
+                  {this.state.rulesInfo.map((ruleInfo, index) => <Rules ruleInfo={ ruleInfo } key={ index }/>)}
                 </TopAndBottomBorder>
                 <Cancellations/>
                 <TopAndBottomBorder>
-                  <Calendar onChange={(date) => this.OnChangeForDate()} value={this.state.date}/>
+                  <Calendar onChange={(date) => this.OnChangeForDate()} value={ this.state.date }/>
                 </TopAndBottomBorder>
                 
             </div>

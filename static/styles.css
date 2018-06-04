@@ -1,8 +1,19 @@
 #listing_title {
-    margin: 5% 17% 1%;
+    margin-top: 5%;
+    margin-left: 17%;
+    margin-bottom: 1%;
     font-family: 'Merriweather', serif;
     font-weight: 700;
     font-size: 31px;
+}
+
+#host_avatar {
+  position: absolute;
+  margin-left: 5.2%;
+  height: 10%;
+  top: 7.5%;
+  left: 38%;
+  border-radius: 50%;
 }
 
 #listing_location {

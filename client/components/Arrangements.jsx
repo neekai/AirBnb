@@ -12,8 +12,10 @@ const ArrangementsWrapper = styled.div`
 const ArrangementsBorder = styled.div`
   border: 1px solid #DBDBDB;
   margin-top: 2%;
-  width: 12.5%;
+  width: 14.5%;
   padding: 3%; 
+  margin-right: 3%;
+  display: inline-block;
 `;
 
 const ArrangementsSpan = styled.span`
@@ -36,9 +38,11 @@ const Arrangements = ({ statsInfo }) => (
   <ArrangementsWrapper>
     <div>Sleeping arrangements</div>
     <ArrangementsBorder>
-      { statsInfo.bedrooms >= 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>1 King Bed</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 King Beds</div></Bed> }   
+      { statsInfo.bedrooms >= 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> }   
     </ArrangementsBorder>
-     {/* <ArrangementsSpan>Hi</ArrangementsSpan>    */}
+    <ArrangementsBorder>
+      { statsInfo.bedrooms > 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 2</div><div>1 King Bed</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 2</div><div>2 Queen Beds</div></Bed> }   
+    </ArrangementsBorder>
   </ArrangementsWrapper>
 )
 
