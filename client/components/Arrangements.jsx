@@ -38,7 +38,7 @@ const Arrangements = ({ statsInfo }) => (
     <ArrangementsBorder>
       { statsInfo.bedrooms >= 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>1 King Bed</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 King Beds</div></Bed> }   
     </ArrangementsBorder>
-     <ArrangementsSpan>Hi</ArrangementsSpan>   
+     {/* <ArrangementsSpan>Hi</ArrangementsSpan>    */}
   </ArrangementsWrapper>
 )
 
