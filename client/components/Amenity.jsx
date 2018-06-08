@@ -84,9 +84,9 @@ class Amenity extends React.Component {
 
               <AmenityDiv>
                 { this.props.amenitiesInfo.amenities !== undefined && this.props.amenitiesInfo.amenities.includes('Smart TV') ? 
-                <span><i class="fas fa-tv"></i> Smart TV </span> : <span>Medkit <i class="fas fa-medkit"></i></span> }
+                <span><i class="fas fa-tv"></i> Smart TV </span> : <span><i class="fas fa-medkit"></i> Medkit </span> }
                 <AmenitySpan>  
-                { this.props.amenitiesInfo.amenities !== undefined && this.props.amenitiesInfo.amenities.includes('Gaming consoles') ? 
+                { this.props.amenitiesInfo.amenities !== undefined && this.props.amenitiesInfo.amenities.includes('Free parking on premises') ? 
                 <span>Free parking on premises <i class="fas fa-parking"></i>  </span> : <span>Gaming Consoles <i class="fas fa-gamepad"></i></span> }
                 </AmenitySpan>
               </AmenityDiv>

@@ -39,7 +39,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            listing_id: 0,
+            listing_id: 3,
             listingInfo: {},
             statsInfo: {},
             amenitiesInfo: {},
@@ -65,7 +65,7 @@ class App extends React.Component {
           }
       }).then(res => {
                this.setState({
-                   listingInfo: res.data[id]
+                   listingInfo: res.data[0]
                });
            }).catch(err => {console.log("There was an err retrieving listing info..", err)});
     }
@@ -77,15 +77,16 @@ class App extends React.Component {
               listing_id: id
           }
       }).then(res => {
-                // console.log("This is stats data..", res.data);
+                console.log("This is stats data..", res.data[0]);
                 this.setState({
-                    statsInfo: res.data[id]
+                    statsInfo: res.data[0]
                 })
+                console.log("statsinfo..", this.state.statsInfo);
             }).catch(err => console.log("There was an err fetching stats from controller..", err));
     }
 
     fetchListingAmenitiesFromDB() {
-      const id = this.state.listing_id;
+      const id = Math.ceil(Math.random()*2);
       axios.get('/api/amenities', {
         params: {
           listing_id: id
@@ -93,7 +94,7 @@ class App extends React.Component {
       }).then(res => {
             //   console.log("This is amenities data..", res.data);
               this.setState({
-                amenitiesInfo: res.data[id]
+                amenitiesInfo: res.data[0]
               })  
            }).catch(err => console.log("There was an err fetching amenities from controller..", err)); 
     }
@@ -101,7 +102,7 @@ class App extends React.Component {
     fetchRulesFromDB() {
       axios.get('/api/rules', {
         params: {
-          listing_id: 0
+          listing_id: 1
         }
       }).then(res => {
               this.setState({
@@ -117,7 +118,7 @@ class App extends React.Component {
           listing_id: id
         }
       }).then(res => this.setState({
-          hostInfo: res.data[id]
+          hostInfo: res.data[0]
       }))
         .catch(err => console.log("There was an err fetching host from controller..", err))
     }
@@ -136,9 +137,6 @@ class App extends React.Component {
         return(
             <div>
                 <Title hostInfo={ this.state.hostInfo } listingInfo={ this.state.listingInfo } />
-                {/* <HostPicture>
-                <img src="" alt="Avatar" id="image"/>
-                </HostPicture> */}
                 <Stats statsInfo={ this.state.statsInfo }/>
                 <Highlights/>
                 <Description listingInfo={ this.state.listingInfo }/>
