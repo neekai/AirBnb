@@ -34,6 +34,26 @@ const HostPicture = styled.div`
   right: 10px;
 `;
 
+const AvailabilityDiv = styled.div`
+  margin-bottom: 2.5%;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+`;
+
+const MinimumStayDiv = styled.div`
+  margin-bottom: 3.5%;
+  font-size: 17px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+`
+
+const MinimumStaySpan = styled.span`
+  font-size: 17px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+`
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -151,9 +171,15 @@ class App extends React.Component {
                 </TopAndBottomBorder>
                 <Cancellations/>
                 <TopAndBottomBorder>
+                  <AvailabilityDiv>
+                    Availability
+                  </AvailabilityDiv>
+                  <MinimumStayDiv>
+                    <MinimumStaySpan>2 nights </MinimumStaySpan>minimum stay · Updated today
+                  </MinimumStayDiv>
                   <Calendar onChange={(date) => this.OnChangeForDate()} value={ this.state.date }/>
+                  
                 </TopAndBottomBorder>
-                
             </div>
         )
     }
