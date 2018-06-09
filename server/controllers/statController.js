@@ -1,4 +1,5 @@
 const { Stat } = require('../../database/models');
+const { save } = require('../saveHelper');
 
 statController = {
     FETCH: (req, res) => { Stat.find({ listing_id: req.query.listing_id })
@@ -6,9 +7,10 @@ statController = {
                .catch(err => {res.status(404); console.log("There was an error fetching stats from db..", err)})
             },
 
-    SAVE: (req, res) => { Stat.create(req.body)
-                              .then(data => res.status(200).send("successfully saved stats to db"))
-                              .catch(err => {res.status(404); console.log("err retrieving stats from db..", err)})
+    SAVE: (req, res) => { save(req.body, (err) => {
+        if(err) {console.log("There was an err saving stats to DB...", err)} 
+        else { res.status(201).send("Successfully saved stats to DB");}
+      })
         }
 }
 

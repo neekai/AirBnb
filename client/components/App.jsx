@@ -39,7 +39,7 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            listing_id: 3,
+            listing_id: 88,
             listingInfo: {},
             statsInfo: {},
             amenitiesInfo: {},
@@ -71,7 +71,7 @@ class App extends React.Component {
     }
 
     fetchListingStatsFromDB() {
-      const id = this.state.listing_id;
+      const id = Math.ceil(Math.random()*10);
       axios.get('/api/stats', {
           params: {
               listing_id: id
@@ -112,7 +112,8 @@ class App extends React.Component {
     }
 
     fetchHostInfo() {
-      const id = this.state.listing_id;
+      const id = Math.ceil(Math.random()*13)
+      // const id = this.state.listing_id;
       axios.get('/api/hosts', {
         params: {
           listing_id: id

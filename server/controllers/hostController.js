@@ -10,7 +10,8 @@ hostController = {
     SAVE: (req, res) => {
         save(req.body, (err) => {
             if(err) {res.status(404); console.log("There was an err saving hosts to db..", err)}
-              else {res.status(201).send("successfully saved hosts to db")}}); 
+              else {res.status(201).send("successfully saved hosts to db")}
+        }); 
     }
 }
 

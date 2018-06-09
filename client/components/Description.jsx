@@ -59,7 +59,7 @@ class Description extends React.Component {
           <Wrapper>
           <div id="listing_description">
             <ListingDescription>
-              { firstLine !== undefined ? firstLine.split('.')[0] : null }
+              { firstLine !== undefined ? firstLine.split('.')[0] + '.' : null }
             </ListingDescription>
               <div>
                 { !this.state.expanded ? <a onClick={() => {this.expandedText()}}><ReadMoreAndHide>Read more about the space<i class="fas fa-angle-down"></i></ReadMoreAndHide></a> : null }

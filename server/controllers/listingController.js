@@ -17,11 +17,10 @@ listingController = {
     },
 
     SAVE: (req, res) => {
-      saveListing(req.body, (err) => {if(err) {
-        console.log("There was an err saving listings to DB...", err)
-      } else {
-          res.status(201).send("Successfully saved listings to DB");
-      }});   
+      save(req.body, (err) => {
+          if(err) {console.log("There was an err saving listings to DB...", err)} 
+          else { res.status(201).send("Successfully saved listings to DB");}
+        });   
     }
 }
 

@@ -38,11 +38,12 @@ const Arrangements = ({ statsInfo }) => (
   <ArrangementsWrapper>
     <div>Sleeping arrangements</div>
     <ArrangementsBorder>
-      { statsInfo.bedrooms >= 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> }   
+      { statsInfo.bedrooms === 1 && statsInfo.beds === 1 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>1 King Bed</div></Bed> : statsInfo.bedrooms === 2 && statsInfo.beds === 2 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>1 Queen Bed</div></Bed> : statsInfo.bedrooms >= 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 1</div><div>2 Queen Beds</div></Bed> }   
     </ArrangementsBorder>
+    { statsInfo.bedrooms === 1 ? null : 
     <ArrangementsBorder>
       { statsInfo.bedrooms > 1 && statsInfo.beds < 4 ? <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 2</div><div>1 King Bed</div></Bed> : <Bed><div><i class="fas fa-bed"></i></div><div>Bedroom 2</div><div>2 Queen Beds</div></Bed> }   
-    </ArrangementsBorder>
+    </ArrangementsBorder>}
   </ArrangementsWrapper>
 )
 
