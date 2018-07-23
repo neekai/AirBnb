@@ -1,0 +1,70 @@
+#listing_title {
+    margin-top: 5%;
+    margin-left: 17%;
+    margin-bottom: 1%;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 31px;
+}
+
+#host_avatar {
+  position: absolute;
+  margin-left: 5.2%;
+  height: 10%;
+  top: 7.5%;
+  left: 38%;
+  border-radius: 50%;
+}
+
+#listing_location {
+   margin-left: 17%;
+   margin-bottom: 2.5%;
+   font-family: 'Source Sans Pro', sans-serif;
+   font-weight: 300;
+   font-size: 16px; 
+}
+
+#stats {
+    margin-left: 14%;
+}
+
+#stats li {
+    display: inline;
+    margin-left: 0.8%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.highlights_description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+.highlights_label {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px; 
+  font-weight: 600;
+}
+
+.message_container {
+    width: 42em;
+}
+
+.message_header {
+    padding-bottom: 3%;
+    color: #767676;
+}
+
+#highlights_box {
+    margin-left: 17%;
+}
+
+/* #listing_description {
+    font-size: 15px;
+} */
+
+
